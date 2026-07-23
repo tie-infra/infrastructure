@@ -1,6 +1,7 @@
 {
   lib,
   fetchFromGitHub,
+  markdown-to-confluence,
   python3Packages,
 }:
 python3Packages.buildPythonApplication (finalAttrs: {
@@ -30,31 +31,32 @@ python3Packages.buildPythonApplication (finalAttrs: {
     "types-python-dateutil"
   ];
 
-  dependencies = with python3Packages; [
-    atlassian-python-api
-    requests
-    beautifulsoup4
-    httpx
-    mcp
-    fastmcp
-    fakeredis
-    python-dotenv
-    markdownify
-    markdown
-    markdown-to-confluence
-    pydantic
-    trio
-    click
-    uvicorn
-    starlette
-    urllib3
-    thefuzz
-    python-dateutil
-    keyring
-    cachetools
-    unidecode
-    truststore
-  ];
+  dependencies =
+    (with python3Packages; [
+      atlassian-python-api
+      requests
+      beautifulsoup4
+      httpx
+      mcp
+      fastmcp
+      fakeredis
+      python-dotenv
+      markdownify
+      markdown
+      pydantic
+      trio
+      click
+      uvicorn
+      starlette
+      urllib3
+      thefuzz
+      python-dateutil
+      keyring
+      cachetools
+      unidecode
+      truststore
+    ])
+    ++ [ markdown-to-confluence ];
 
   meta = {
     description = "MCP server for Atlassian tools (Confluence, Jira)";

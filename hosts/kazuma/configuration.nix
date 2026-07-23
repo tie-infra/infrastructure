@@ -97,10 +97,7 @@ in
       rust-server.oxide
       eco-server
       satisfactory-server
-      javaWrappers.java8
-      javaWrappers.java17
-      javaWrappers.java21
-      javaWrappers.java25
+      java-wrappers
     ];
     environment = {
       PUFFER_WEB_HOST = ":${toString pufferpanelWebPort}";

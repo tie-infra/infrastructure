@@ -1,19 +1,9 @@
 {
   lib,
-  buildPythonPackage,
   fetchFromGitHub,
-  setuptools,
-  lxml,
-  types-lxml,
-  markdown,
-  types-markdown,
-  pymdown-extensions,
-  pyyaml,
-  types-pyyaml,
-  requests,
-  types-requests,
+  python3Packages,
 }:
-buildPythonPackage (finalAttrs: {
+python3Packages.buildPythonPackage (finalAttrs: {
   pname = "markdown-to-confluence";
   # FIXME: update to 0.6.1 or newer once mcp-atlassian supports it.
   # https://github.com/sooperset/mcp-atlassian/issues/1360
@@ -28,10 +18,10 @@ buildPythonPackage (finalAttrs: {
   };
 
   build-system = [
-    setuptools
+    python3Packages.setuptools
   ];
 
-  dependencies = [
+  dependencies = with python3Packages; [
     lxml
     types-lxml
     markdown
