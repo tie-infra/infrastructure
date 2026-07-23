@@ -31,7 +31,6 @@
               rust-server = true;
               palworld-server = true;
               eco-server = true;
-              outline = true;
             };
           in
           pkg: builtins.hasAttr (lib.getName pkg) allowUnfree;
